@@ -40,24 +40,7 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
-        /*$profile = new Profile;
-        $profile->users_id = Sentinel::getUser()->id;
-        $profile->name = $request->name;
-        $profile->place_birth = $request->place_birth;
-        $profile->date_birth = $request->date_birth;
-        $profile->religion = $request->religion;
-        $profile->gender = $request->gender;
-        $profile->staff_id = $request->staff_id;
-        $profile->position = $request->position;
-        $profile->unit = $request->unit;
-        $profile->bpjs_number = $request->bpjs_number;
-        $profile->bank_number = $request->bank_number;
-        $profile->phone = $request->phone;
-        $profile->current_address = $request->current_address;
-        $profile->origin_address = $request->origin_address;
-        $profile->email = $request->email;
-        $profile->save();
-*/
+        
         Profile::create($request->all());
 
         return redirect('profiles');
@@ -100,7 +83,9 @@ class ProfilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profile = Profile::findOrFail($id);
+        $profile->update($request->all());
+        
     }
 
     /**

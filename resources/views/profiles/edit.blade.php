@@ -86,7 +86,8 @@
                                                 <div class="tab-content">
                                                     <!-- PERSONAL INFO TAB -->
                                                     <div class="tab-pane active" id="tab_1_1">
-                                                        <form role="form" action="/profiles" method="POST">
+                                                        <form role="form" action="/profiles/{{ $profile->id }}" method="POST">
+                                                            {{ method_field('PUT') }}
                                                             {{ csrf_field() }}
                                                             <div class="form-group">
                                                                 <input type="hidden" name="users_id" value="{{ Sentinel::getUser()->id }}" />
@@ -186,32 +187,32 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nomor Telepon</label>
-                                                                <input type="text" placeholder="081536288567" class="form-control" name="phone" /> </div>
+                                                            <input type="text" placeholder="" class="form-control" name="phone" value="{{ $profile->phone }}" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Alamat Tinggal</label>
-                                                                <input type="text" placeholder="Perumahan Bumi Indah, No 21 Jakarta" class="form-control" name="current_address" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="current_address" value="{{ $profile->current_address }}" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Alamat Asal</label>
-                                                                <input type="text" placeholder="Jalan Mangga No. 21 Sukolilo Surabaya" class="form-control" name="origin_address" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="origin_address" value="{{ $profile->origin_address }}" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Email Kantor</label>
-                                                                <input type="text" placeholder="Anonymous@gmail.com" class="form-control" name="email" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="email" value="{{ $profile->email }}" /> </div>
                                                             
                                                             <div class="form-group">
                                                                 <label class="control-label">Nomor Pegawai</label>
-                                                                <input type="text" placeholder="12341123" class="form-control" name="staff_id" /> </div>
+                                                                <input type="text" placeholder="12341123" class="form-control" name="staff_id" value="{{ $profile->staff_id }}" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Posisi</label>
-                                                                <input type="text" placeholder="Web Developer" class="form-control" name="position" /> </div>
+                                                                <input type="text" placeholder="Web Developer" class="form-control" name="position" value="{{ $profile->position }}" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Unit</label>
-                                                                <input type="text" placeholder="Teknologi Informasi" class="form-control" name="unit" /> </div>
+                                                                <input type="text" placeholder="Teknologi Informasi" class="form-control" name="unit" value="{{ $profile->unit }}" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nomor BPJS</label>
-                                                                <input type="text" placeholder="31234234112333" class="form-control" name="bpjs_number" /> </div>
+                                                                <input type="text" placeholder="31234234112333" class="form-control" name="bpjs_number" value="{{ $profile->bpjs_number }}" /> </div>
                                                                 <div class="form-group">
                                                             <label class="control-label">Rekening Bank</label>
-                                                                <input type="text" placeholder="14423225543" class="form-control" name="bank_number" /> </div>
+                                                                <input type="text" placeholder="14423225543" class="form-control" name="bank_number" value="{{ $profile->bank_number }}" /> </div>
                                                             <div class="margiv-top-10">
                                                                 <button type="Submit" name="SubmitProfiles" class="btn green"> Save Changes </button>
                                                                 <a href="javascript:;" class="btn default"> Cancel </a>
