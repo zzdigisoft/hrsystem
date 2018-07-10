@@ -17,26 +17,15 @@
                                 <div class="portlet light profile-sidebar-portlet ">
                                     <!-- SIDEBAR USERPIC -->
                                     <div class="profile-userpic">
-                                        <img src="../img/profile_user.jpg" class="img-responsive" alt=""> </div>
+                                        <img src="../../img/profile_user.jpg" class="img-responsive" alt=""> </div>
                                     <!-- END SIDEBAR USERPIC -->
                                     <!-- SIDEBAR USER TITLE -->
                                     <div class="profile-usertitle">
-                                        <div class="profile-usertitle-name"> Marcus Doe </div>
-                                        <div class="profile-usertitle-job"> Developer </div>
+                                        <div class="profile-usertitle-name"> {{ Sentinel::getUser()->name }} </div>
+                                        <div class="profile-usertitle-job">  </div>
                                     </div>
                                     <!-- END SIDEBAR USER TITLE -->
-                                    <div class="margin-top-20 profile-desc-link" style="margin-left: 20px">
-                                        <i class="fa fa-phone"></i>
-                                        <a href="http://www.keenthemes.com">+62 8953623484</a>
-                                    </div>
-                                    <div class="margin-top-20 profile-desc-link" style="margin-left: 20px">
-                                    <i class="fa fa-home"></i>
-                                    <a href="http://www.twitter.com/keenthemes/">Tangerang, Jawa Barat</a>
-                                    </div>
-                                    <div class="margin-top-20 profile-desc-link" style="margin-left: 20px">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <a href="http://www.facebook.com/keenthemes/">hamidattohari99@gmail.com</a>
-                                    </div>
+                                    
                                     <!-- SIDEBAR MENU -->
                                     <div class="profile-usermenu">
                                         <ul class="nav">
@@ -89,27 +78,27 @@
                                                         <form role="form" action="/profiles" method="POST">
                                                             {{ csrf_field() }}
                                                             <div class="form-group">
-                                                                <input type="hidden" name="users_id" value="{{ Sentinel::getUser()->id }}" />
+                                                                <input type="hidden" name="user_id" value="{{ Sentinel::getUser()->id }}" />
                                                                 <label class="control-label">Nama Lengkap</label>
-                                                                <input type="text" placeholder="John Smith" class="form-control" name="name" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="name"  value="{{ Sentinel::getUser()->name }}"/>  </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Tempat Lahir</label>
-                                                                <input type="text" placeholder="Jakarta" class="form-control" name="place_birth" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="place_birth"  />  </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Tanggal Lahir</label>
-                                                                <input type="date" placeholder="" class="form-control" name="date_birth" /> </div>
+                                                                <input type="date" placeholder="" class="form-control" name="date_birth"  />  </div>
                                                             <div class="form-group form-md-radios">
                                                                 <label>Jenis Kelamin</label>
                                                                 <div class="md-radio-inline">
                                                                     <div class="md-radio">
-                                                                        <input type="radio" id="radio6" name="gender" class="md-radiobtn" value="Laki-laki" checked>
+                                                                        <input type="radio" id="radio6" name="gender" class="md-radiobtn" value="Laki-laki" >
                                                                         <label for="radio6">
                                                                             <span></span>
                                                                             <span class="check"></span>
                                                                             <span class="box"></span> Laki-laki </label>
                                                                     </div>
                                                                     <div class="md-radio">
-                                                                        <input type="radio" id="radio7" name="gender" class="md-radiobtn" value="Perempuan">
+                                                                        <input type="radio" id="radio7" name="gender" class="md-radiobtn" value="Perempuan" >
                                                                         <label for="radio7">
                                                                             <span></span>
                                                                             <span class="check"></span>
@@ -121,7 +110,7 @@
                                                                 <label>Agama</label>
                                                                 <div class="md-radio-inline">
                                                                     <div class="md-radio">
-                                                                        <input type="radio" id="radio8" name="religion" class="md-radiobtn" value="Islam" checked >
+                                                                        <input type="radio" id="radio8" name="religion" class="md-radiobtn" value="Islam" >
                                                                         <label for="radio8">
                                                                             <span></span>
                                                                             <span class="check"></span>
@@ -166,32 +155,35 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nomor Telepon</label>
-                                                                <input type="text" placeholder="081536288567" class="form-control" name="phone" /> </div>
+                                                            <input type="text" placeholder="" class="form-control" name="phone" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Alamat Tinggal</label>
-                                                                <input type="text" placeholder="Perumahan Bumi Indah, No 21 Jakarta" class="form-control" name="current_address" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="current_address" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Alamat Asal</label>
-                                                                <input type="text" placeholder="Jalan Mangga No. 21 Sukolilo Surabaya" class="form-control" name="origin_address" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="origin_address" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Email Kantor</label>
-                                                                <input type="text" placeholder="Anonymous@gmail.com" class="form-control" name="email" /> </div>
+                                                                <input type="text" placeholder="" class="form-control" name="email" /> </div>
                                                             
                                                             <div class="form-group">
                                                                 <label class="control-label">Nomor Pegawai</label>
-                                                                <input type="text" placeholder="12341123" class="form-control" name="staff_id" /> </div>
+                                                                <input type="text"  class="form-control" name="staff_id" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Posisi</label>
-                                                                <input type="text" placeholder="Web Developer" class="form-control" name="position" /> </div>
+                                                                <input type="text"  class="form-control" name="position" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Unit</label>
-                                                                <input type="text" placeholder="Teknologi Informasi" class="form-control" name="unit" /> </div>
+                                                                <input type="text"  class="form-control" name="unit" /> </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label">Direktorat</label>
+                                                                <input type="text"  class="form-control" name="direktorat" /> </div>
                                                             <div class="form-group">
                                                                 <label class="control-label">Nomor BPJS</label>
-                                                                <input type="text" placeholder="31234234112333" class="form-control" name="bpjs_number" /> </div>
+                                                                <input type="text"  class="form-control" name="bpjs_number" /> </div>
                                                                 <div class="form-group">
                                                             <label class="control-label">Rekening Bank</label>
-                                                                <input type="text" placeholder="14423225543" class="form-control" name="bank_number" /> </div>
+                                                                <input type="text"  class="form-control" name="bank_number" /> </div>
                                                             <div class="margiv-top-10">
                                                                 <button type="Submit" name="SubmitProfiles" class="btn green"> Save Changes </button>
                                                                 <a href="javascript:;" class="btn default"> Cancel </a>

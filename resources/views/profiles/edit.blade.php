@@ -142,7 +142,7 @@
                                                                 <label>Agama</label>
                                                                 <div class="md-radio-inline">
                                                                     <div class="md-radio">
-                                                                        <input type="radio" id="radio8" name="religion" class="md-radiobtn" value="Islam" checked >
+                                                                        <input type="radio" id="radio8" name="religion" class="md-radiobtn" value="Islam">
                                                                         <label for="radio8">
                                                                             <span></span>
                                                                             <span class="check"></span>

@@ -17,9 +17,18 @@ class ProfilesController extends Controller
     {
         $id = Sentinel::getUser()->id;        
         
-        $profiles = Profile::where('users_id', $id)->get();
+        $profiles = Profile::where('user_id', $id)->get();
 
-        return view('profiles.show', compact('profiles'));
+        
+        if($profiles[0]!=''){
+            return view('profiles.show', compact('profiles'));
+        }
+        else 
+        {
+            return view('profiles.create');
+        }
+       
+        
     }
 
     /**
@@ -43,8 +52,11 @@ class ProfilesController extends Controller
         
         Profile::create($request->all());
 
-        return redirect('profiles');
+        $id = Sentinel::getUser()->id;
 
+        $profile = Profile::findOrFail($id);
+        
+        return redirect('index');
 
 
     }
@@ -84,8 +96,10 @@ class ProfilesController extends Controller
     public function update(Request $request, $id)
     {
         $profile = Profile::findOrFail($id);
+
         $profile->update($request->all());
-        
+
+        return redirect('profiles');
     }
 
     /**
